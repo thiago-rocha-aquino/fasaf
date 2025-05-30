@@ -1,0 +1,412 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.scene-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+}
+
+/* Floating hearts background */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.floating-hearts::before,
+.floating-hearts::after {
+    content: '❤️ 💕 💖 ❤️ 💕';
+    position: absolute;
+    font-size: 2rem;
+    animation: float-up 15s linear infinite;
+    opacity: 0.1;
+}
+
+.floating-hearts::before {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts::after {
+    right: 10%;
+    animation-delay: 7.5s;
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.1;
+    }
+    90% {
+        opacity: 0.1;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.gift-container {
+    cursor: pointer;
+    z-index: 10;
+    transform-style: preserve-3d;
+}
+
+.gift-3d {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg);
+    transition: transform 0.6s ease;
+    animation: gentle-float 3s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+    0%, 100% { transform: rotateX(-20deg) rotateY(30deg) translateY(0); }
+    50% { transform: rotateX(-20deg) rotateY(30deg) translateY(-10px); }
+}
+
+.gift-3d:hover {
+    transform: rotateX(-20deg) rotateY(40deg) scale(1.05);
+}
+
+.gift-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+}
+
+.face {
+    position: absolute;
+    background: linear-gradient(135deg, #ff8fab, #ff4757);
+    border: 2px solid #ff6b9d;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.face.front,
+.face.back {
+    width: 200px;
+    height: 200px;
+}
+
+.face.front {
+    transform: translateZ(100px);
+}
+
+.face.back {
+    transform: rotateY(180deg) translateZ(100px);
+}
+
+.face.right,
+.face.left {
+    width: 200px;
+    height: 200px;
+}
+
+.face.right {
+    transform: rotateY(90deg) translateZ(100px);
+}
+
+.face.left {
+    transform: rotateY(-90deg) translateZ(100px);
+}
+
+.face.top,
+.face.bottom {
+    width: 200px;
+    height: 200px;
+}
+
+.face.top {
+    transform: rotateX(90deg) translateZ(100px);
+    background: linear-gradient(135deg, #ff6b9d, #ee5a6f);
+    overflow: hidden;
+}
+
+.face.bottom {
+    transform: rotateX(-90deg) translateZ(100px);
+}
+
+/* Heart pattern on box faces */
+.heart-pattern {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.heart-pattern::before,
+.heart-pattern::after {
+    content: '♥';
+    position: absolute;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+.heart-pattern::before {
+    top: 20px;
+    left: 20px;
+}
+
+.heart-pattern::after {
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Lid decoration */
+.lid-decoration {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.love-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 5px;
+}
+
+/* 3D Ribbon */
+.ribbon {
+    position: absolute;
+    background: linear-gradient(45deg, #e84393, #c44569);
+    transform-style: preserve-3d;
+}
+
+.ribbon-vertical {
+    width: 30px;
+    height: 200px;
+    left: 85px;
+    top: 0;
+    transform: translateZ(101px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.ribbon-horizontal {
+    width: 200px;
+    height: 30px;
+    top: 85px;
+    left: 0;
+    transform: translateZ(101px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 3D Bow */
+.bow-3d {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%) translateZ(120px);
+    transform-style: preserve-3d;
+}
+
+.bow-center {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #ff6b9d, #c44569);
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.bow-left,
+.bow-right {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    top: -20px;
+    border-radius: 50% 10% 50% 10%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.bow-left {
+    left: -50px;
+    transform: rotate(-30deg);
+}
+
+.bow-right {
+    right: -50px;
+    transform: rotate(30deg) scaleX(-1);
+}
+
+/* Shadow */
+.shadow {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(ellipse, rgba(0, 0, 0, 0.3), transparent);
+    bottom: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(20px);
+}
+
+/* Click text */
+.click-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    bottom: -80px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.heart-icon {
+    font-size: 24px;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.8; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+/* Opening animation */
+.gift-3d.opening {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotateX(-20deg) rotateY(30deg) translateX(0); }
+    25% { transform: rotateX(-20deg) rotateY(30deg) translateX(-5px); }
+    75% { transform: rotateX(-20deg) rotateY(30deg) translateX(5px); }
+}
+
+.gift-3d.opening .face.top {
+    animation: lid-open 0.8s ease-out forwards;
+}
+
+@keyframes lid-open {
+    0% { transform: rotateX(90deg) translateZ(100px); }
+    100% { transform: rotateX(90deg) translateZ(100px) rotateX(-90deg) translateY(-100px); opacity: 0; }
+}
+
+.gift-3d.opening .bow-3d {
+    animation: bow-fly 0.8s ease-out forwards;
+}
+
+@keyframes bow-fly {
+    0% { transform: translateX(-50%) translateZ(120px); }
+    100% { transform: translateX(-50%) translateZ(120px) translateY(-200px) rotate(360deg); opacity: 0; }
+}
+
+/* Heart explosion */
+.heart-explosion {
+    position: absolute;
+    font-size: 30px;
+    color: #ff4757;
+    opacity: 0;
+    z-index: 1000;
+    user-select: none;
+    pointer-events: none;
+    animation: heart-explode 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    filter: drop-shadow(0 0 10px rgba(255, 71, 87, 0.6));
+}
+
+@keyframes heart-explode {
+    0% {
+        transform: scale(0.3) translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2) translate(var(--tx), var(--ty)) rotate(var(--rotate));
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media screen and (max-width: 480px) {
+    .gift-3d {
+        width: 150px;
+        height: 150px;
+    }
+
+    .face.front,
+    .face.back,
+    .face.right,
+    .face.left,
+    .face.top,
+    .face.bottom {
+        width: 150px;
+        height: 150px;
+    }
+
+    .face.front { transform: translateZ(75px); }
+    .face.back { transform: rotateY(180deg) translateZ(75px); }
+    .face.right { transform: rotateY(90deg) translateZ(75px); }
+    .face.left { transform: rotateY(-90deg) translateZ(75px); }
+    .face.top { transform: rotateX(90deg) translateZ(75px); }
+    .face.bottom { transform: rotateX(-90deg) translateZ(75px); }
+
+    .ribbon-vertical {
+        width: 25px;
+        height: 150px;
+        left: 62.5px;
+        transform: translateZ(76px);
+    }
+
+    .ribbon-horizontal {
+        width: 150px;
+        height: 25px;
+        top: 62.5px;
+        transform: translateZ(76px);
+    }
+
+    .bow-3d {
+        transform: translateX(-50%) translateZ(90px) scale(0.8);
+    }
+
+    .click-text {
+        font-size: 16px;
+        bottom: -60px;
+    }
+
+    .shadow {
+        width: 140px;
+        height: 140px;
+        bottom: -200px;
+    }
+}
