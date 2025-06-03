@@ -280,13 +280,13 @@ body {
   }
 
   .upload-container {
-    width: 90%;
+    width: 95%;
     margin: 10px auto;
     padding: 10px;
   }
 
   .slideshow-container {
-    height: 250px;
+    height: 400px;
   }
 
   .counter-container {
@@ -344,7 +344,7 @@ body {
 @media screen and (max-width: 390px), 
        screen and (max-height: 844px) {
   .slideshow-container {
-    height: 280px;
+    height: 400px;
   }
 
   .video-container iframe {
@@ -399,7 +399,7 @@ body {
 /* Landscape orientation */
 @media screen and (max-height: 390px) {
   .slideshow-container {
-    height: 200px;
+    height: 400px;
   }
 
   .video-container iframe {
