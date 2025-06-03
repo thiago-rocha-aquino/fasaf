@@ -65,6 +65,8 @@ const images = [
   'imagens/foto8.jpeg',
   'imagens/foto9.jpeg',
   'imagens/foto10.jpeg',
+  'imagens/foto11.jpeg',
+  'imagens/foto12.jpeg',
 ];
 
 let currentImageIndex = 0;
@@ -173,3 +175,4 @@ function animateHearts() {
 
 // Animate hearts every 1 second
 setInterval(animateHearts, 1000);
+
