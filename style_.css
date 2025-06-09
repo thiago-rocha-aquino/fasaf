@@ -105,8 +105,8 @@ body {
 
 .face {
     position: absolute;
-    background: linear-gradient(135deg, #ff8fab, #ff4757);
-    border: 2px solid #ff6b9d;
+    background: linear-gradient(135deg, #7e0523, #91151f);
+    border: 2px solid #99202a;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
 }
 
@@ -146,7 +146,7 @@ body {
 
 .face.top {
     transform: rotateX(90deg) translateZ(100px);
-    background: linear-gradient(135deg, #ff6b9d, #ee5a6f);
+    background: linear-gradient(135deg,  #7e0523, #91151f);
     overflow: hidden;
 }
 
@@ -200,7 +200,7 @@ body {
 /* 3D Ribbon */
 .ribbon {
     position: absolute;
-    background: linear-gradient(45deg, #e84393, #c44569);
+    background: linear-gradient(45deg, #91151f, #91151f);
     transform-style: preserve-3d;
 }
 
@@ -234,7 +234,7 @@ body {
 .bow-center {
     width: 40px;
     height: 40px;
-    background: radial-gradient(circle, #ff6b9d, #c44569);
+    background: radial-gradient(circle, #91151f, #91151f);
     border-radius: 50%;
     position: relative;
     z-index: 2;
@@ -246,7 +246,7 @@ body {
     position: absolute;
     width: 60px;
     height: 80px;
-    background: linear-gradient(135deg, #ff6b9d, #c44569);
+    background: linear-gradient(135deg, #91151f, #91151f);
     top: -20px;
     border-radius: 50% 10% 50% 10%;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
